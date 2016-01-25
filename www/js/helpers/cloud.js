@@ -14,9 +14,9 @@ App.helpers.cloud = function(cloudEndpoint, userInput, successCb, errCb){
    */
   var params = {
     path: cloudEndpoint,
-    method: "GET",
+    method: "POST",
     contentType: "application/json",
-    data: {hello: userInput},
+    data: {data: userInput},
     timeout: 15000
   };
 

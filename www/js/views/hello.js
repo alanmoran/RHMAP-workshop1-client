@@ -47,16 +47,17 @@ App.View.HelloView = Backbone.View.extend({
     var helloResultEl = self.$el.find('.hello-result');
 
     //Finding the input text.
-    var input = self.$el.find("input[type='text']");
+    var name = self.$el.find("input[type='text']").val();
+    var age = self.$el.find("input[type='number']").val();
 
-    var characters = input.val();
+    var cloudObj = {name:name, age:age};
 
     helloResultEl.html("Calling Cloud Endpoint");
     helloResultEl.removeClass("hidden");
 
-    if(characters){
+    if(name && age){
       //Calling the "cloud" helper function to call the $fh.cloud endpoint.
-      App.helpers.cloud("hello", characters, self.success, self.error);
+      App.helpers.cloud("hello", cloudObj, self.success, self.error);
     }
   }
 });
